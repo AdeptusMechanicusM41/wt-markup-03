@@ -11,23 +11,22 @@
   --hero-bg: #2f303a;
   --footer-contact-color: rgba(255, 255, 255, 0.6);
   --icon-color: #afb1b8;
-  --card-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
-    0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  --card-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
   --input-border-color: rgba(255, 255, 255, 0.3);
 }
 
-/* RESET */
-* {
+/* GLOBAL RESET */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Roboto, Arial, sans-serif;
-  color: var(--primary-text-color);
-  font-size: 14px;
-  letter-spacing: 0.03em;
 }
 
 ul {
@@ -48,6 +47,13 @@ img {
 button {
   font-family: inherit;
   cursor: pointer;
+}
+
+body {
+  font-family: Roboto, Arial, sans-serif;
+  color: var(--primary-text-color);
+  font-size: 14px;
+  letter-spacing: 0.03em;
 }
 
 /* UTILITIES */
@@ -147,20 +153,33 @@ button {
   fill: currentColor;
 }
 
+/* SECTION — спільний клас для всіх секцій */
+.section {
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
+
+/* SECTION TITLE */
+.section-title {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.17;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
 /* HERO */
 .hero {
   background-color: var(--hero-bg);
-  background-image: linear-gradient(
-      rgba(47, 48, 58, 0.4),
-      rgba(47, 48, 58, 0.4)
-    ),
+  background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
     url(../images/Bg.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   color: var(--white-color);
   text-align: center;
-  padding: 200px 0;
+  padding-top: 200px;
+  padding-bottom: 200px;
 }
 
 .hero-title {
@@ -189,21 +208,13 @@ button {
 
 .hero-btn:hover,
 .hero-btn:focus {
-  background-color: #188ce5;
-}
-
-/* SECTION TITLE */
-.section-title {
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 1.17;
-  text-align: center;
-  margin-bottom: 50px;
+  background-color: #188ce8;
 }
 
 /* ADVANTAGES */
 .advantages {
-  padding: 94px 0;
+  padding-top: 94px;
+  padding-bottom: 94px;
 }
 
 .advantages-list {
@@ -212,7 +223,7 @@ button {
 }
 
 .advantages-item {
-  flex: 1;
+  flex-basis: calc((100% - 90px) / 4);
 }
 
 .advantages-icon-wrapper {
@@ -223,13 +234,21 @@ button {
   background-color: var(--bg-light);
   border-radius: 4px;
   margin-bottom: 30px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.advantages-item:hover .advantages-icon-wrapper {
+  background-color: var(--accent-color);
 }
 
 .advantages-icon {
-  display: block;
-  width: 106px;
-  height: 60px;
-  object-fit: contain;
+  fill: currentColor;
+  color: var(--primary-text-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.advantages-item:hover .advantages-icon {
+  color: var(--white-color);
 }
 
 .advantages-subtitle {
@@ -257,13 +276,14 @@ button {
 }
 
 .work-item {
-  flex: 1;
+  flex-basis: calc((100% - 60px) / 3);
 }
 
 /* TEAM */
 .team {
   background-color: var(--bg-light);
-  padding: 94px 0;
+  padding-top: 94px;
+  padding-bottom: 94px;
 }
 
 .team-list {
@@ -272,6 +292,7 @@ button {
 }
 
 .team-item {
+  flex-basis: calc((100% - 90px) / 4);
   background-color: var(--white-color);
   text-align: center;
   border-radius: 0px 0px 4px 4px;
@@ -330,7 +351,8 @@ button {
 .footer {
   background-color: var(--bg-dark);
   color: var(--white-color);
-  padding: 60px 0;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .footer .logo span {
@@ -457,9 +479,11 @@ button {
 
 .subscribe-btn:hover,
 .subscribe-btn:focus {
-  background-color: #188ce5;
+  background-color: #188ce8;
 }
 
 .subscribe-icon {
-  fill: currentColor;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
 }
