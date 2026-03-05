@@ -242,13 +242,11 @@ body {
 }
 
 .advantages-icon {
-  fill: currentColor;
-  color: var(--primary-text-color);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: filter 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .advantages-item:hover .advantages-icon {
-  color: var(--white-color);
+  filter: brightness(0) invert(1);
 }
 
 .advantages-subtitle {
